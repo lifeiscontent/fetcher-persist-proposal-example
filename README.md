@@ -1,40 +1,9 @@
-# Welcome to Remix!
+# Remix Persist Proposal
 
-- 📖 [Remix docs](https://remix.run/docs)
+with the `persist` key in a fetcher, you would be able to opt-out of persisting the data, and continue to use the same fetcher by key to access the same data.
 
-## Development
+To illustrate the problem, you can boot up the app, goto the `users` table, and filter by something.
 
-Run the dev server:
+next, if you change tables, you'll notice that the data is stale.
 
-```shellscript
-npm run dev
-```
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+Even if you were to dynamically generate the key from the table name, you'd still have the same problem, in the scenario that the underlining data changes.
